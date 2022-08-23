@@ -1,6 +1,7 @@
 RewriteEngine on
-## böyle bir dosya varsa dosyayı çalıştır
+## eğer dosya varsa dosyayı çalıştır 
 RewriteCond %{REQUEST_FILENAME} !-f
-## böyle bir dosya varsa route olarak çalıştırma
+## eğer gelen istek bir dosya değilse bu RewriteRule çalışacak 
+## buraya ne gelirse gelsin route parametresi olarak al
 RewriteRule ^(.*)$ index.php?route=$1 [QSA]
 

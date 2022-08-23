@@ -1,4 +1,9 @@
 <?php
+function test_arr($arr){
+    echo("<pre>");
+    print_r($arr) ;
+    echo("</pre>");
+}
 function route($index){
     global $config ;
     if(isset($config['route'][$index])){
@@ -11,6 +16,19 @@ function view($viewName, $pageData = []){
     $data = $pageData ;
     if(file_exists(BASEDIR.'/View/'.$viewName.'.php')){
         require BASEDIR.'/View/'.$viewName.'.php' ;
+    }else{
+        return false ;
+    }
+}
+function model($modelName, $pageData = [], $data_process = null){
+    global $DBConnect ;
+    if($data_process != null){
+        $process = $data_process ;
+    }
+    $data = $pageData ;
+    if(file_exists(BASEDIR.'/Model/'.$modelName.'.php')){
+        $return = require BASEDIR.'/Model/'.$modelName.'.php' ;
+        return $return ;
     }else{
         return false ;
     }
@@ -47,23 +65,30 @@ function get_cookie($index){
       return false ;
      }
 }
-function post($index){
-    if(isset($_POST[$index])){
-     return  htmlspecialchars(trim($_POST[$index])) ;
+function post($name){
+    if(isset($_POST[$name])){
+     return  htmlspecialchars(trim($_POST[$name])) ;
     }else{
      return false ;
     }
 }
-function get($index){
-    if(isset($_GET[$index])){
-     return  htmlspecialchars(trim($_GET[$index])) ;
+function get($name){
+    if(isset($_GET[$name])){
+     return  htmlspecialchars(trim($_GET[$name])) ;
     }else{
      return false ;
     }
 }
-
-
-
+function message($messageType, $message){    
+    echo '<div class="alert alert-'.$messageType.'">'.$message.'</div>' ;
+}
+function redirect($link){
+    header('Location:'.URL.$link) ;
+}
+function url($url){
+    global $config ;
+    return URL.$config['lang'].'/'.$url ;
+}
 
 
 

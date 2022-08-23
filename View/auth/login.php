@@ -1,19 +1,31 @@
 <?php view('static/header'); ?>
-
-<body class="hold-transition login-page">
+<div class="login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>TODO</b>APP</a>
+    <a href="../../index2.html"><b>Todo</b>APP</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg"><?= lang('Oturum açın'); ?></p>
+<?php
 
+   echo get_session('error') ? '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>' : null ;
+   //   message('info','Giriş bşarılı')  ------------  message('danger','Kullanıcı adınız veya parolanız hatalı') 
+?>
       <form action="<?= 'login'; ?>" method="post">
-        <?= get_session('mesaj'); ?>
+     
+        <?php
+     /*      if($DBConnect){
+            set_session('mesaj', 'Datababase bağlantısı başarılı') ;
+        }else{
+            set_session('mesaj', 'Datababase bağlantı hatası') ;
+        } */
+        ?>
+         
+        <?php  // echo  md5("123") ;  ?>
         <div class="input-group mb-3">
-          <input type="email" name="eposta" class="form-control" placeholder="<?= lang('E-posta'); ?>">
+          <input type="email" name="eposta" value="<?= $_SESSION['post']['eposta'] ?? '' ;  ?>"  class="form-control" placeholder="<?= lang('E-posta'); ?>">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

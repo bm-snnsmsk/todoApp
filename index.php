@@ -10,7 +10,6 @@ if(DEV_MODE){
     ini_set('error_reporting',false) ;
 }
 
-
 foreach(glob(BASEDIR.'/helpers/'.'*.php') as $file){
     require $file ;
 }
@@ -21,6 +20,12 @@ $config['lang'] = 'tr' ;
 if(isset($_GET['route'])){
     $desen = '@(?<lang>\b[a-z]{2}\b)?/?(?<route>.+)/?@' ;
     preg_match($desen, $_GET['route'], $result) ;
+
+/*    // test alanı  
+    test_arr($_GET['route']) ;
+
+    test_arr($result) ;
+    */
 }
 
 if(isset($result['lang'])){
@@ -33,6 +38,8 @@ if(isset($result['lang'])){
 
 if(isset($result['route'])){
     $config['route'] = explode('/', $result['route']) ;
+    // TEST
+    // test_arr($config['route']) ;
 }
 
 require(BASEDIR.'/language/'.$config['lang'].'.php');
@@ -42,7 +49,11 @@ if(file_exists(BASEDIR.'/Controller/'.$config['route'][0].'.php')){
     echo "Sayfa Bulunamadı" ;
 }
 
-
-
+if(isset($_SESSION['error'])){
+    $_SESSION['error'] = null ;
+}
+if(isset($_SESSION['post'])){
+    $_SESSION['post'] = null ;
+}
 
 ?>
