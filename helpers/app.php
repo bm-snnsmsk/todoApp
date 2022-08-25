@@ -1,8 +1,13 @@
 <?php
 function test_arr($arr){
-    echo("<pre>");
+    echo("<pre style='background:#1d1d1d; color:greenyellow; z-index:99'>");
     print_r($arr) ;
     echo("</pre>");
+    die() ;
+}
+function test_message($msg="text deneme"){
+    echo($msg);
+    die() ;
 }
 function route($index){
     global $config ;
@@ -65,16 +70,19 @@ function get_cookie($index){
       return false ;
      }
 }
+function filter($field){
+    return is_array($field) ? array_map('filter',$field) : htmlspecialchars(trim($field)) ;
+}
 function post($name){
     if(isset($_POST[$name])){
-     return  htmlspecialchars(trim($_POST[$name])) ;
+     return  filter($_POST[$name]) ;
     }else{
      return false ;
     }
 }
 function get($name){
     if(isset($_GET[$name])){
-     return  htmlspecialchars(trim($_GET[$name])) ;
+     return  filter($_GET[$name]) ;
     }else{
      return false ;
     }
