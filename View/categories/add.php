@@ -29,12 +29,11 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="#" method="post">
+              <form action="#" method="post"> <!-- action="#"  => form aynı sayfada dönmüş olacak yani route değeri categories/add olacak yine -->
                 <div class="card-body">
                 <?php
-
-echo get_session('error') ? '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>' : null ;
-?>
+                   echo get_session('error') ? '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>' : null ;
+                ?>
                   <div class="form-group">
                     <label for="title">Kategori Başlığı</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="Kategori adı giriniz..." >

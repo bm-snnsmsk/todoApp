@@ -1,17 +1,17 @@
 <?php
 if(!get_session('login') || get_session('login') != true){
-    redirect('login') ;
+    redirect('login') ;  // login yoksa eğer http://localhost/apps/todoApp/login  'e git
 }
 if(route(0) == 'categories' && !route(1)){
   /*   if(isset($_POST['submit'])){     
         $_SESSION['post'] = $_POST ;  
         $eposta = post('eposta') ;
         $pass = post('sifre') ;
-        // test_arr($_SESSION) ; 
+        // test($_SESSION) ; 
         // echo "Email Adresiniz : ".$eposta."</br>Şifreniz : ".$pass ;
         $return = model('auth/login',['email' => $eposta,'password' => $pass], 'login') ;
-        // test_arr($return) ;
-        // test_arr($_SESSION) ; 
+        // test($return) ;
+        // test($_SESSION) ; 
         if($return['success']){
         /* bu mesaj görünmeyeceğinden bunun yazılmasının bir anlamı yok
             set_session('error', [
@@ -29,11 +29,11 @@ if(route(0) == 'categories' && !route(1)){
         }
  */
   //  }
-   // test_message("categories içerisi") ;
+   // test("categories içerisi") ;
     view('categories/home') ;
 }else if(route(0) == 'categories' && route(1)  == 'add'){
     if(isset($_POST['submit'])){     
-        $_SESSION['post'] = $_POST ;  
+        $_SESSION['post'] = $_POST ;
         $title = post('title') ;
         $return = model('categories',['title' => $title], 'add') ; 
         if($return['success'] == true){
@@ -49,18 +49,18 @@ if(route(0) == 'categories' && !route(1)){
     }    
     view('categories/add') ;
 }else if(route(0) == 'categories' && route(1)  == 'list'){    
-    // test_message("list içerisi") ;
+    // test("list içerisi") ;
     $return = model('categories',[], 'list') ; 
     view('categories/list', $return['data']) ;  // ilgili datalar ilgili sayfaya gönderilmiş olur
 }else if(route(0) == 'categories' && route(1)  == 'remove' && is_numeric(route(2))){    
-    // test_message("categories/remove içerisi") ;
+    // test("categories/remove içerisi") ;
     $return = model('categories',['removedCategoriesID'=>route(2)], 'remove') ; 
     redirect('categories/list/?type='.$return['type'].'&message='.$return['message']) ; 
 }else if(route(0) == 'categories' && route(1)  == 'edit' && is_numeric(route(2))){
-       // test_message("categories/edit içerisi") ;
-     if(isset($_POST['submit'])){     
+       // test("categories/edit içerisi") ;
+    if(isset($_POST['submit'])){     
         $_SESSION['post'] = $_POST ;  
-       // test_arr($_POST) ;
+        // test($_POST) ;
         $title = post('title') ;
         $categoriesId = post('categoriesId') ;
         $return = model('categories',['title' => $title, 'categoriesId' => $categoriesId], 'edit') ; 
@@ -69,7 +69,7 @@ if(route(0) == 'categories' && !route(1)){
                 'message'=> $return['message'] ?? '',
                 'type' => $return['type'] ?? ''
             ]) ;
-            if(isset($return['redirect'])){
+            if(isset($return['redirect'])){ // bu koşul gerekli mi ??? Çünkü model den gelen redirect yok !
                 redirect($return['redirect']) ;
             }
         }else{
@@ -79,9 +79,9 @@ if(route(0) == 'categories' && !route(1)){
             ]) ;
         }
     } 
-        $return = model('categories',['updatedCategoriesID'=>route(2)], 'getEdit') ;
-        // test_arr($return['data']);
-         view('categories/edit',$return['data']) ;
+    $return = model('categories',['updatedCategoriesID'=>route(2)], 'getEdit') ;
+    // test($return['data']);
+    view('categories/edit',$return['data']) ;
 }
 
 ?>

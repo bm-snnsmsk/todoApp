@@ -1,12 +1,14 @@
 <?php
-function test_arr($arr){
-    echo("<pre style='background:#1d1d1d; color:greenyellow; z-index:99'>");
-    print_r($arr) ;
-    echo("</pre>");
-    die() ;
-}
-function test_message($msg="text deneme"){
-    echo($msg);
+function test($param = "DENEME BAŞARILI"){
+    if(!is_array($param)){
+        echo('<div style="min-height:100px; padding:10px; margin:5px; background-color:#1d1d1d; color:greenyellow; font-size:22px; ">'.$param.'</div>');
+    }else{
+        echo('<pre style="min-height:100px; padding:10px; margin:5px; background-color:#1d1d1d; color:greenyellow;">') ;
+        print_r($param) ;
+        echo("</pre>");
+    }  
+    echo '<div style="margin:20px 5px;"><a style="padding:10px; background-color:#1d1d1d; font-size:22px; text-decoration:none; color:greenyellow;" href="'.
+    $_SERVER['HTTP_REFERER'].'">Geri Dön</a></div>' ;
     die() ;
 }
 function route($index){

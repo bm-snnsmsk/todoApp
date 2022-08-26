@@ -48,9 +48,8 @@
                   </thead>
                   <tbody>
                   <?php
-
+// hata mesajı GET ile gönderildiği için
 echo get('message') ? '<div class="alert alert-'.get('type').'">'.get('message').'</div>' : null ;
-//   message('info','Giriş bşarılı')  ------------  message('danger','Kullanıcı adınız veya parolanız hatalı') 
 ?>
                     <?php $count = 1 ; foreach($data as $key => $value){ ?>
                     <tr>

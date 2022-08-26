@@ -9,9 +9,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg"><?= lang('Oturum açın'); ?></p>
 <?php
-
    echo get_session('error') ? '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>' : null ;
-   //   message('info','Giriş bşarılı')  ------------  message('danger','Kullanıcı adınız veya parolanız hatalı') 
 ?>
       <form action="<?= 'login'; ?>" method="post">
      
