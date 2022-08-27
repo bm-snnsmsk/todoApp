@@ -17,15 +17,17 @@ foreach(glob(BASEDIR.'/helpers/'.'*.php') as $file){
 $config['route'][0] = 'home' ;
 $config['lang'] = 'tr' ;
 
+// test($_GET) ;
+// test($config);
 if(isset($_GET['route'])){
     $desen = '@(?<lang>\b[a-z]{2}\b)?/?(?<route>.+)/?@' ;
     preg_match($desen, $_GET['route'], $result) ;
 
-/*    // test alanı  
-    test_arr($_GET['route']) ;
+   // test alanı  
+    //test($_GET['route']) ;
 
-    test_arr($result) ;
-    */
+   // test($result) ;
+  
 }
 
 if(isset($result['lang'])){
@@ -39,7 +41,7 @@ if(isset($result['lang'])){
 if(isset($result['route'])){
     $config['route'] = explode('/', $result['route']) ;
     // TEST
-    // test_arr($config['route']) ;
+    // test($config['route']) ;
 }
 
 require(BASEDIR.'/language/'.$config['lang'].'.php');
