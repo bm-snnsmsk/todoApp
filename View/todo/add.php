@@ -32,6 +32,7 @@
               <form id="todo" action="#" method="post"> <!-- action="#"  => form aynı sayfada dönmüş olacak yani route değeri categories/add olacak yine -->
                 <div class="card-body">
                 <?php
+                 // test($data);
                    echo get_session('error') ? '<div class="alert alert-'.$_SESSION['error']['type'].'">'.$_SESSION['error']['message'].'</div>' : null ;
                 ?>
                   <div class="form-group">
@@ -73,13 +74,12 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" name="submit" value="1" class="btn btn-primary">Submit</button>
+                  <button type="submit" name="submit" value="1" class="btn btn-primary"><?= lang('Ekle'); ?></button>
                 </div>
               </form>
             </div>
             </div>
-
-          
+            
           </div>
         </div>
         <!-- /.row -->
@@ -107,9 +107,11 @@
 <script>
   let a = document.getElementById('title') ;
   a.focus();
+
+  // JS ile veri gönderme
   let todo = document.querySelector('#todo');
   todo.addEventListener('submit',(e) => {
-    // console.log("test edildi");
+    // console.log("submit test edildi");
     let title = document.querySelector('#title').value;
     let description = document.querySelector('#description').value;
     let category_id = document.querySelector('#category_id').value;
@@ -144,8 +146,9 @@ console.log(res) ;
 
  
 
-    e.preventDefault() ; // php üzerinden gönderim durduruldu (sayfa yenilenmeine gerek kalmadan) javascriptle göndermek için
+    e.preventDefault() ; // php üzerinden gönderim durduruldu (sayfa yenilenmesine gerek kalmadan) javascriptle göndermek için
   }) ;
 </script>
 </body>
 </html>
+

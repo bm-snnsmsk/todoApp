@@ -4,7 +4,8 @@ $lang = [
     'Oturum açın' => 'Please, Login !',
     'E-posta' => 'Email',
     'pass' => 'Password',
-    'Giriş Yap' => 'Giriş Yap'
+    'Giriş Yap' => 'Giriş Yap',
+    'Ekle' => 'Add'
 ] ;
 
 

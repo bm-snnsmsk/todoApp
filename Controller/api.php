@@ -1,7 +1,7 @@
 <?php
 
 if(route(1) == 'addtodo'){
-    $post = filter($_POST) ;
+    $post = filter($_POST) ; // app.php post() ve get() fonksiyonları zaten filter() fonksiyonundan geçiriliyor
   
     if(!$post['title']){
         $status = "error" ;
