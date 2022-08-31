@@ -5,7 +5,8 @@ $lang = [
     'E-posta' => 'Email',
     'pass' => 'Password',
     'Giriş Yap' => 'Giriş Yap',
-    'Ekle' => 'Add'
+    'Ekle' => 'Add',
+    'Güncelle' => 'Edit'
 ] ;
 
 

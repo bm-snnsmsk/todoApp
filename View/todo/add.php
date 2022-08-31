@@ -53,6 +53,17 @@
                     <input type="text" class="form-control" name="description" id="description" placeholder="Todo açıklaması giriniz..." >
                   </div>
                   <div class="form-group">
+                    <label for="status">Durum</label>
+                    <select class="form-control" id="status" >
+                          <option value="p">Pasif</option>
+                          <option value="a">Aktif</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="range">İlerleme</label>
+                    <input type="range" class="form-control" name="range" id="range" min="0" max="100">
+                  </div>
+                  <div class="form-group">
                     <label for="color">Renk seçiniz</label>
                     <input type="color" class="form-control" name="color" id="color" value="#007bff" >
                   </div>
@@ -120,6 +131,9 @@
     let finish_date = document.querySelector('#finish_date').value;
     let start_time = document.querySelector('#start_time').value;
     let finish_time = document.querySelector('#finish_time').value;
+    let status = document.querySelector('#status').value;
+    let range = document.querySelector('#range').value;
+    
 
     let formData = new FormData();
     formData.append('title',title) ;
@@ -130,6 +144,8 @@
     formData.append('finish_date',finish_date) ;
     formData.append('start_time',start_time) ;
     formData.append('finish_time',finish_time) ;
+    formData.append('status',status) ;
+    formData.append('range',range) ;
 
     axios.post('<?= url('api/addtodo') ?>', formData).then(res => { 
       if(res.data.redirect){
