@@ -52,6 +52,7 @@
                   <tbody>
                   <?php
                  // test(status('a'));
+                // test(status('a'));
 // hata mesajı GET ile gönderildiği için
 echo get('message') ? '<div class="alert alert-'.get('type').'">'.get('message').'</div>' : null ;
 ?>
@@ -67,7 +68,7 @@ echo get('message') ? '<div class="alert alert-'.get('type').'">'.get('message')
                         <div class="progress progress-xs">
                           <div class="progress-bar progress-bar-danger" style="width:<?= $value['todoProgress'] ; ?>%"></div>
                         </div>
-                      </td> 
+                      </td> <!-- status($value['todoStatus']) dizi döndüreceğinden status($value['todoStatus'])['color'] yazılır -->
                       <td> <span class="badge bg-<?= status($value['todoStatus'])['color'] ?>"><?= status($value['todoStatus'])['title'] ?></span>
                       </td>
                       <td>
