@@ -51,7 +51,7 @@
                   </thead>
                   <tbody>
                   <?php
-                  // test($data);
+                 // test(status('a'));
 // hata mesajı GET ile gönderildiği için
 echo get('message') ? '<div class="alert alert-'.get('type').'">'.get('message').'</div>' : null ;
 ?>
@@ -68,7 +68,7 @@ echo get('message') ? '<div class="alert alert-'.get('type').'">'.get('message')
                           <div class="progress-bar progress-bar-danger" style="width:<?= $value['todoProgress'] ; ?>%"></div>
                         </div>
                       </td> 
-                      <td> <span class="badge bg-<?= $value['todoStatus'] == 'a' ? "warning" : "success"; ?>"><?= $value['todoStatus'] == 'a' ? "Devam eden" : "Biten"; ?></span>
+                      <td> <span class="badge bg-<?= status($value['todoStatus'])['color'] ?>"><?= status($value['todoStatus'])['title'] ?></span>
                       </td>
                       <td>
                         <div class="btn-group btn-group-sm">

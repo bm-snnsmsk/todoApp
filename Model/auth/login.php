@@ -18,7 +18,8 @@
     set_session('usersID',$user['usersID']) ;
     set_session('usersName',$user['usersName']) ;
     set_session('usersSurname',$user['usersSurname']) ;
-    set_session('fullname',ucwords($user['fullname'])) ;
+    set_session('password',$user['usersPassword']) ;
+    set_session('fullname',$user['fullname']) ;
     set_session('usersEmail',$user['usersEmail']) ;
     set_session('login', true) ;
     return ['success' => true, 'message' => 'Giriş Başarılı', 'data' => $user, 'type' => 'success', 'redirect' => 'home'] ;

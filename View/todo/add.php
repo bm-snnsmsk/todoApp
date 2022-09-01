@@ -57,6 +57,7 @@
                     <select class="form-control" id="status" >
                           <option value="p">Pasif</option>
                           <option value="a">Aktif</option>
+                          <option value="s">Süreçte</option>
                       </select>
                   </div>
                   <div class="form-group">

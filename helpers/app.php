@@ -55,6 +55,10 @@ function lang($text){
         return $text ;
     }
 }
+function default_lang(){
+    global $config ;
+    return $config['lang'] ;
+}
 function set_session($index, $value){
    $_SESSION[$index] = $value ;
 }

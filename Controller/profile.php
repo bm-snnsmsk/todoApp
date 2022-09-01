@@ -1,0 +1,10 @@
+<?php 
+
+
+view('profile/home') ;
+
+
+
+
+
+?>
